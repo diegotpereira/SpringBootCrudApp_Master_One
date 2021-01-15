@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cadastro de Clientes</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/post_customer.js"></script>
+</head>
+<body>
+
+	<div class="container">
+
+		<ul class="nav nav-pills">
+
+			<li class="nav-item"><a class="nav-link" href="/">Adicionar
+					Novo</a></li>
+
+			<li class="nav-item"><a class="nav-link" href="/clientes.html">Todos
+					Clientes</a></li>
+
+		</ul>
+		<div class="row">
+
+			<div class="col-sm-7"
+				style="background-color: #e6fffa; padding: 10px; border-radius: 3px">
+
+				<h3>Adicionar novo cliente</h3>
+
+				<form id="add_novo_cliente">
+
+					<div class="form-group">
+
+						<label class="control-label" for="nome">Nome:</label> <input
+							type="text" class="form-control" id="nome"
+							placeholder="Digite seu primeiro nome" name="nome" required></input>
+
+					</div>
+
+					<div class="form-group">
+
+						<label class="control-label" for="sobrenome">Sobrenome:</label> <input
+							type="text" class="form-control" id="sobrenome"
+							placeholder="Digite seu sobrenome" name="sobrenome" required></input>
+					</div>
+
+					<div class="form-group">
+
+						<label class="control-label" for="endereco">Endereço</label> <input
+							type="number" class="form-control" id="endereco"
+							placeholder="Digite seu endereço" name="endereco" required></input>
+					</div>
+
+					<div class="form-group">
+
+
+						<label class="control-label" for="idade">Idade:</label> <input
+							type="number" class="form-control" id="idade"
+							placeholder="Digite sua idade" name="idade" min="18" max="60"
+							required></input>
+
+					</div>
+					<button type="submit" class="btn btn-danger"
+						id="btn-add-novo-cliente">Atualizar</button>
+
+				</form>
+				<div id="response" style="display: none; margin-top: 10px"></div>
+			</div>
+		</div>
+		<hr>
+	</div>
+</body>
+</html>
