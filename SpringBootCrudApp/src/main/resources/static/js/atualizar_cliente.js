@@ -1,20 +1,18 @@
-/**
- * 
- */
 $(document).ready(function(){
-	$("#atualizar_cliente_form").submit(function(evt) {
-		evt.preventDefault();
-		try {
-			let clienteId = $("#cliente_id").val();
-			
-			 let formData = {
-                firstname : $("#cliente_nome").val(),
-                lastname :  $("#cliente_sobrenome").val(),
-                address: $("#cliente_endereco").val(),
-                age: $("#cliente_idade").val()
-            }
+    $("#atualizar_cliente_form").submit(function(evt) {
+        evt.preventDefault();
+        try {
+            let clienteId = $("#cliente_id").val();
 
-     $.ajax({
+            
+            let formData = {
+                nome : $("#cleinte_nome").val(),
+                sobrenome :  $("#cliente_sobrenome").val(),
+                endereco: $("#cliente_endereco").val(),
+                idade: $("#cliente_idade").val()
+            }
+            
+            $.ajax({
                 url: '/api/cliente/atualizarById/' + clienteId + "/",
                 type: 'PUT',
                 contentType : "application/json",
@@ -24,16 +22,16 @@ $(document).ready(function(){
                 cache: false,
                 success: function (response) {
                     let cliente = response.clientes[0];
-                    let clienteString = "{nome:" + cliente.nome + 
+                    let customerString = "{nome:" + cliente.nome + 
                                                 " ,sobrenome:" + cliente.sobrenome + 
                                                 ", endereco:" + cliente.endereco + 
                                                 ", idade:" + cliente.idade  + "}"
                     let successAlert = '<div class="alert alert-success alert-dismissible">' + 
                                             '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-                                            '<strong>' + response.message + '</strong> Cliente\'s Info = ' + clienteString;
+                                            '<strong>' + response.mensagem + '</strong> Cliente\'s Info = ' + customerString;
                                         '</div>'
 
-                    // change the updated data for customer table record
+                    
                     $("#tr_" + clienteId + " td.td_nome").text(cliente.nome.toUpperCase());
                     $("#tr_" + clienteId + " td.td_endereco").text(cliente.endereco.toUpperCase());
 
@@ -45,7 +43,7 @@ $(document).ready(function(){
                 error: function (response) {
                     let errorAlert = '<div class="alert alert-danger alert-dismissible">' + 
                                         '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-                                        '<strong>' + response.message + '</strong>' + ' ,Error: ' + message.error + 
+                                        '<strong>' + response.mensagem + '</strong>' + ' ,Error: ' + mensagem.error + 
                                     '</div>';
 
                     $("#response").empty();                                    
@@ -59,7 +57,7 @@ $(document).ready(function(){
         }
     });
 
- $(document).on("click", "table button.btn_id", function(){
+    $(document).on("click", "table button.btn_id", function(){
         let id_of_button = (event.srcElement.id);
         let clienteId = id_of_button.split("_")[2];
   
