@@ -59,11 +59,11 @@ public class ClienteController {
 		}
 	}
 	@GetMapping("/recuperarInfo")
-	public ResponseEntity<Mensagem> recuperarInfo(){
+	public ResponseEntity<Mensagem> recuperarClienteInfo(){
 		try {
-			List<Cliente> clienteInfo = service.getClienteInfo();
+			List<Cliente> clienteInfos = service.getClienteInfo();
 			return new ResponseEntity<Mensagem>(new Mensagem("Buscar Cliente' Informação!", 
-					clienteInfo, ""), HttpStatus.OK);
+					clienteInfos, ""), HttpStatus.OK);
 		} catch (Exception e) {
 			// TODO: handle exception
 			return new ResponseEntity<Mensagem>(new Mensagem("Falha",
